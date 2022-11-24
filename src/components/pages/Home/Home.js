@@ -23,7 +23,7 @@ const Home = () => {
                 is waiting for you
               </p>
               <Link to="/allproducts">
-                <button className="btn btn-primary font-bold">
+                <button className="btn btn-secondary font-bold">
                   Get Started &nbsp; <ImArrowRight2 />
                 </button>
               </Link>
