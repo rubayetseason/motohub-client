@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 import { ImArrowRight2 } from "react-icons/im";
+import { RiMotorbikeLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import banner1 from "../../../assets/banner/banner-1.jpg";
 import banner2 from "../../../assets/banner/banner-2.jpg";
@@ -31,11 +32,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="catagories-container my-10">
-        <h1 className="text-5xl font-bold my-5">Categories</h1>
-        <h1>100cc</h1>
-        <h1>125cc</h1>
-        <h1>150cc</h1>
+      <section className="catagories-container mt-10 mb-20">
+        <h1 className="text-5xl font-bold mt-20 mb-5">Categories</h1>
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-5">
+       <button className="h-20 btn btn-primary btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp; 100 CC Bikes</button>
+<button className="h-20 btn btn-secondary btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp;125 CC Bikes</button>
+<button className="h-20 btn btn-accent btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp;150 CC Bikes</button>
+       </div>
       </section>
       <section className="carousel-section">
         <div className="carousel w-full h-[500px]">
