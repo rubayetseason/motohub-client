@@ -32,7 +32,7 @@ const Home = () => {
         </div>
       </section>
       <section className="catagories-container my-10">
-        <h1 className="text-5xl font-bold underline my-5">Categories</h1>
+        <h1 className="text-5xl font-bold my-5">Categories</h1>
         <h1>100cc</h1>
         <h1>125cc</h1>
         <h1>150cc</h1>
