@@ -1,0 +1,4 @@
+.bg-bike {
+background-image: url('../../../assets/bike.jpg');
+object-fit: cover;
+}
