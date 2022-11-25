@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -13,6 +16,13 @@ const Login = () => {
 
   const handleLogin = (data) => {
     console.log(data);
+    signIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("User login successful");
+      })
+      .then((error) => console.log(error));
   };
 
   return (

@@ -4,7 +4,11 @@ import banner from "../../assets/banner.png";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut();
+  };
 
   const menuItems = (
     <React.Fragment>
@@ -19,10 +23,13 @@ const Header = () => {
       </li>
       {user?.email ? (
         <>
-        <li className="font-semibold">
-        <Link to="/login">Dashboard</Link>
-      </li>
-          <button className="btn btn-outline btn-error text-white font-semibold">
+          <li className="font-semibold">
+            <Link to="/login">Dashboard</Link>
+          </li>
+          <button
+            onClick={handleLogOut}
+            className="btn btn-outline btn-error text-white font-semibold"
+          >
             Logout
           </button>
         </>
