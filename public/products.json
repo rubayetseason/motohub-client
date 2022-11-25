@@ -7,9 +7,9 @@
     "resale-price": 75000,
     "original-price": 90000,
     "use": "2 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Rahul Sinha",
-    "verified": "yes"
+    "verified": false
   },
   {
     "name": "Bajaj Platina",
@@ -19,9 +19,9 @@
     "resale-price": 65000,
     "original-price": 80000,
     "use": "1 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Robin Sharma",
-    "verified": "no"
+    "verified": true
   },
   {
     "name": "TVS Sport",
@@ -31,9 +31,9 @@
     "resale-price": 65000,
     "original-price": 85000,
     "use": "3 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Rubayet Islam",
-    "verified": "yes"
+    "verified": true
   },
   {
     "name": "Bajaj CT 100",
@@ -43,9 +43,9 @@
     "resale-price": 55000,
     "original-price": 70000,
     "use": "2 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Neyamot Ullah",
-    "verified": "yes"
+    "verified": false
   },
   {
     "name": "Honda Activa 125",
@@ -55,9 +55,9 @@
     "resale-price": 90000,
     "original-price": 99000,
     "use": "2 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Hasibb Miah",
-    "verified": "yes"
+    "verified": false
   },
   {
     "name": "Bajaj Pulsar NS125",
@@ -67,9 +67,9 @@
     "resale-price": 85000,
     "original-price": 100000,
     "use": "1 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Mansib Chowdhury",
-    "verified": "no"
+    "verified": true
   },
   {
     "name": "TVS Ntorq 125",
@@ -79,9 +79,9 @@
     "resale-price": 81000,
     "original-price": 91000,
     "use": "4 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Tahmid Shams",
-    "verified": "no"
+    "verified": true
   },
   {
     "name": "KTM 125 Duke",
@@ -91,9 +91,9 @@
     "resale-price": 78000,
     "original-price": 110000,
     "use": "2 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Robiul Alam",
-    "verified": "no"
+    "verified": true
   },
   {
     "name": "Bajaj Pulsar 150",
@@ -103,9 +103,9 @@
     "resale-price": 85000,
     "original-price": 120000,
     "use": "1 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Mohabbat Miah",
-    "verified": "no"
+    "verified": false
   },
   {
     "name": "Yamaha FZS-FI V3",
@@ -115,9 +115,9 @@
     "resale-price": 94000,
     "original-price": 130000,
     "use": "1 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Kalam Sagar",
-    "verified": "no"
+    "verified": true
   },
   {
     "name": "Yamaha FZ-FI Version 3.0",
@@ -127,9 +127,9 @@
     "resale-price": 96000,
     "original-price": 125000,
     "use": "6 months",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Miah Bhai",
-    "verified": "yes"
+    "verified": false
   },
   {
     "name": "Yamaha FZ-X",
@@ -139,8 +139,8 @@
     "resale-price": 89000,
     "original-price": 119000,
     "use": "3 years",
-    "posted": "Nov 24, 2022",
+    "posted": "11/25/2022",
     "seller": "Varun Simaron",
-    "verified": "yes"
+    "verified": true
   }
 ]
