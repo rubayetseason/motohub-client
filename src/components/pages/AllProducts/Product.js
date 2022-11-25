@@ -11,6 +11,7 @@ const Product = ({ product }) => {
     seller,
     location,
     verified,
+    posted,
   } = product;
   return (
     <div className="card border-2 shadow-xl">
@@ -37,7 +38,10 @@ const Product = ({ product }) => {
             ""
           )}
         </p>
-        <p className="mb-2">{location}</p>
+        <p>{location}</p>
+        <p className="mb-2">
+          <small>Date posted: {posted}</small>
+        </p>
         <div className="card-actions justify-center">
           <button className="btn btn-primary font-bold">Book Now</button>
         </div>

@@ -34,11 +34,23 @@ const Home = () => {
       </section>
       <section className="catagories-container mt-10 mb-20">
         <h1 className="text-5xl font-bold mt-20 mb-5">Categories</h1>
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-5">
-       <button className="h-20 btn btn-primary btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp; 100 CC Bikes</button>
-<button className="h-20 btn btn-secondary btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp;125 CC Bikes</button>
-<button className="h-20 btn btn-accent btn-active text-xl font-bold">< RiMotorbikeLine/> &nbsp;150 CC Bikes</button>
-       </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-5">
+          <Link to="/catagory/100cc">
+            <button className="w-full h-20 btn btn-primary btn-active text-xl font-bold">
+              <RiMotorbikeLine /> &nbsp; 100 CC Bikes
+            </button>
+          </Link>
+          <Link to="/catagory/125cc">
+            <button className="h-20 w-full btn btn-secondary btn-active text-xl font-bold">
+              <RiMotorbikeLine /> &nbsp;125 CC Bikes
+            </button>
+          </Link>
+          <Link to="/catagory/150cc">
+            <button className="h-20 w-full btn btn-accent btn-active text-xl font-bold">
+              <RiMotorbikeLine /> &nbsp;150 CC Bikes
+            </button>
+          </Link>
+        </div>
       </section>
       <section className="carousel-section">
         <div className="carousel w-full h-[500px]">
