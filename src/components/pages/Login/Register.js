@@ -61,7 +61,7 @@ const Register = () => {
               {" "}
               <span className="label-text">Your Role</span>
             </label>
-            <select className="h-12" {...register("role")}>
+            <select className="h-12 rounded-lg" {...register("role")}>
               <option value="seller">seller</option>
               <option value="buyer">buyer</option>
             </select>
