@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import banner from "../../assets/banner.png";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const menuItems = (
     <React.Fragment>
       <li className="font-semibold">
@@ -14,9 +17,22 @@ const Header = () => {
       <li className="font-semibold">
         <Link to="/blogs">Blogs</Link>
       </li>
-      <li className="font-semibold">
-        <Link to="/login">Login</Link>
+      {user?.email ? (
+        <>
+        <li className="font-semibold">
+        <Link to="/login">Dashboard</Link>
       </li>
+          <button className="btn btn-outline btn-error text-white font-semibold">
+            Logout
+          </button>
+        </>
+      ) : (
+        <>
+          <li className="font-semibold">
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
     </React.Fragment>
   );
 
@@ -48,7 +64,7 @@ const Header = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case font-bold text-xl">
-          <img src={banner} className='w-16' alt="" />
+          <img src={banner} className="w-16" alt="" />
           Motohub
         </Link>
       </div>

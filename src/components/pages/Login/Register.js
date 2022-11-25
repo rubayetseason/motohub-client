@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
 
   const {
@@ -15,6 +18,13 @@ const Register = () => {
   const handleSignUp = (data) => {
     setSignUpError("");
     console.log(data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("User created successfully");
+      })
+      .then((error) => console.log(error));
   };
 
   return (
@@ -62,8 +72,8 @@ const Register = () => {
               <span className="label-text">Your Role</span>
             </label>
             <select className="h-12 rounded-lg" {...register("role")}>
-              <option value="seller">seller</option>
               <option value="buyer">buyer</option>
+              <option value="seller">seller</option>
             </select>
           </div>
           <div className="form-control w-full max-w-xs">
