@@ -2,11 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import AllProducts from "../components/pages/AllProducts/AllProducts";
 import Catagory from "../components/pages/AllProducts/Catagory";
 import Blogs from "../components/pages/Blogs/Blogs";
+import MyDashboard from "../components/pages/Dashboard/MyDashboard";
 import Home from "../components/pages/Home/Home";
 import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
 import NotFound from "../components/shared/NotFound";
 import Main from "../layouts/Main";
+import DashboardLayout from "./DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -39,6 +41,15 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+        ]
+    },{
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <MyDashboard></MyDashboard>
+            }
         ]
     },
     { path: "*", element: <NotFound></NotFound> },

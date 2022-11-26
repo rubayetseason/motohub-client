@@ -22,7 +22,7 @@ const Product = ({ product, setItem }) => {
       <div className="card-body">
         <h2 className="card-title mx-auto">{name}</h2>
         <p>
-          <small>Category: {catagory} </small>
+          <small>Category: {catagory}</small>
         </p>
         <p>Original Price: {original_price}</p>
         <p className="font-bold">

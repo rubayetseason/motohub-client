@@ -37,7 +37,7 @@ const BookingModal = ({ item, setItem }) => {
           </label>
           <form onSubmit={handleSubmit}>
             <h3 className="text-lg font-bold">{name}</h3>
-            <p>Resale Price: {resale_price}</p>
+            <p className="font-bold">Resale Price: {resale_price}</p>
             <div className="form-control w-full">
               <label className="label">
                 <span className="label-text">Your Name</span>
