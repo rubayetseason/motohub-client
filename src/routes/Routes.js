@@ -7,6 +7,7 @@ import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
 import NotFound from "../components/shared/NotFound";
 import Main from "../layouts/Main";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/catagory/:brand',
-                element: <Catagory></Catagory>,
+                element: <PrivateRoute><Catagory></Catagory></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/products/${params.brand}`)
             },
             {
