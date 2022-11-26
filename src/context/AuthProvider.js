@@ -49,7 +49,15 @@ const AuthProvider = ({ children }) => {
     return () => unsubscibe();
   }, []);
 
-  const authInfo = { user, loading, createUser, logOut, signIn, updateUser, googleLogin };
+  const authInfo = {
+    user,
+    loading,
+    createUser,
+    logOut,
+    signIn,
+    updateUser,
+    googleLogin,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

@@ -9,7 +9,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || "/";
 
   const { signIn, googleLogin } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
@@ -28,7 +28,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("User login successful");
-        navigate(from , {replace: true});
+        navigate(from, { replace: true });
       })
       .then((error) => console.log(error));
   };
