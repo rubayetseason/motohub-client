@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import Loading from "../../shared/Loading";
 import BookingModal from "./BookingModal";
 import Product from "./Product";
 
 const AllProducts = () => {
   const [item, setItem] = useState(null);
-  const { data: products = [] } = useQuery({
+  const { data: products = [], isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const res = fetch("http://localhost:5000/products");
@@ -13,6 +14,10 @@ const AllProducts = () => {
       return data;
     },
   });
+
+  if(isLoading){
+    return <Loading></Loading>
+  }
 
   return (
     <div>

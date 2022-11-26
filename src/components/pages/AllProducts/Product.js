@@ -12,6 +12,7 @@ const Product = ({ product, setItem }) => {
     location,
     verified,
     posted,
+    use
   } = product;
   return (
     <div className="card border-2 shadow-xl">
@@ -39,8 +40,11 @@ const Product = ({ product, setItem }) => {
           )}
         </p>
         <p>{location}</p>
-        <p className="mb-2">
+        <p>
           <small>Date posted: {posted}</small>
+        </p>
+        <p className="mb-2">
+          <small>Time used: {use}</small>
         </p>
         <div className="card-actions justify-center">
         <label onClick={() => setItem(product)} htmlFor="bookingModal" className="btn btn-primary font-bold">Book Now</label>

@@ -4,13 +4,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../context/AuthProvider";
 import toast from "react-hot-toast";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleLogin } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+
   const {
     register,
     formState: { errors },
@@ -28,6 +31,17 @@ const Login = () => {
         navigate(from , {replace: true});
       })
       .then((error) => console.log(error));
+  };
+
+  const handleGoogle = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -93,7 +107,7 @@ const Login = () => {
           </small>
         </p>
         <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">
+        <button onClick={handleGoogle} className="btn btn-outline w-full">
           <FcGoogle /> &nbsp; CONTINUE WITH GOOGLE
         </button>
       </div>

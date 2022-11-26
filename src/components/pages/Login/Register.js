@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../../context/AuthProvider";
 import toast from "react-hot-toast";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, googleLogin } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
+
+  const googleProvider = new GoogleAuthProvider();
 
   const {
     register,
@@ -31,6 +34,17 @@ const Register = () => {
           .catch((err) => console.log(err));
       })
       .then((error) => console.log(error));
+  };
+
+  const handleGoogle = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -121,7 +135,7 @@ const Register = () => {
           </p>
         </small>
         <div className="divider">OR</div>
-        <button className="btn btn-outline w-full">
+        <button onClick={handleGoogle} className="btn btn-outline w-full">
           <FcGoogle /> &nbsp; CONTINUE WITH GOOGLE
         </button>
       </div>

@@ -38,6 +38,9 @@ const Header = () => {
           <li className="font-semibold">
             <Link to="/login">Login</Link>
           </li>
+          <li className="font-semibold">
+            <Link to="/register">Register</Link>
+          </li>
         </>
       )}
     </React.Fragment>
