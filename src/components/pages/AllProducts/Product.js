@@ -1,7 +1,7 @@
 import React from "react";
 import { GoVerified } from "react-icons/go";
 
-const Product = ({ product }) => {
+const Product = ({ product, setItem }) => {
   const {
     name,
     image,
@@ -43,7 +43,7 @@ const Product = ({ product }) => {
           <small>Date posted: {posted}</small>
         </p>
         <div className="card-actions justify-center">
-        <label htmlFor="bookingModal" className="btn btn-primary font-bold">Book Now</label>
+        <label onClick={() => setItem(product)} htmlFor="bookingModal" className="btn btn-primary font-bold">Book Now</label>
         </div>
       </div>
     </div>
