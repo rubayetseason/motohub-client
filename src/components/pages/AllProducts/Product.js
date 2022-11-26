@@ -43,7 +43,7 @@ const Product = ({ product }) => {
           <small>Date posted: {posted}</small>
         </p>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary font-bold">Book Now</button>
+        <label htmlFor="bookingModal" className="btn btn-primary font-bold">Book Now</label>
         </div>
       </div>
     </div>

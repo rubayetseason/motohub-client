@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import BookingModal from "./BookingModal";
 import Product from "./Product";
 
 const AllProducts = () => {
@@ -19,6 +20,9 @@ const AllProducts = () => {
         {products.map((product) => (
           <Product key={product._id} product={product}></Product>
         ))}
+      </div>
+      <div>
+        <BookingModal></BookingModal>
       </div>
     </div>
   );
