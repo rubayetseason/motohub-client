@@ -6,13 +6,16 @@ const DashboardNav = () => {
     <div>
       <ul className="menu menu-vertical lg:menu-horizontal bg-black">
         <li className="border mr-5">
-          <a>My Orders</a>
+          <Link to='/dashboard/myorders'>My Orders</Link>
         </li>
         <li className="border mr-5">
-          <a>All Users</a>
+          <Link>My Products</Link>
+        </li>
+        <li className="border mr-5">
+          <Link>All Users</Link>
         </li>
         <li className="border">
-          <a>Add A Product</a>
+          <Link>Add A Product</Link>
         </li>
       </ul>
     </div>
