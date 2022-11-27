@@ -13,9 +13,12 @@ const MyProducts = () => {
       .then((data) => {
         const productList = data.data;
         setMyProducts(productList);
-        console.log(myProducts);
       });
   }, [user?.uid, myProducts]);
+
+  const handleAdvertise = (product) => {
+    console.log(product);
+  };
 
   return (
     <div>
@@ -23,9 +26,13 @@ const MyProducts = () => {
         You have {myProducts.length} products
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-5">
-        {
-            myProducts.map(product => <MyProduct key={product._id} product={product}></MyProduct>)
-        }
+        {myProducts.map((product) => (
+          <MyProduct
+            key={product._id}
+            product={product}
+            handleAdvertise={handleAdvertise}
+          ></MyProduct>
+        ))}
       </div>
     </div>
   );
