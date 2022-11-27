@@ -9,6 +9,7 @@ import MyDashboard from "../components/pages/Dashboard/MyDashboard";
 import MyOrders from "../components/pages/Dashboard/MyOrders";
 import MyProducts from "../components/pages/Dashboard/MyProducts";
 import MyWishlist from "../components/pages/Dashboard/MyWishlist";
+import Payment from "../components/pages/Dashboard/Payment";
 import Home from "../components/pages/Home/Home";
 import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
@@ -89,6 +90,12 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/allsellers",
         element: <AllSellers></AllSellers>,
+      },
+      {
+        path: "/dashboard/payment/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/bookings/${params.id}`),
       },
     ],
   },

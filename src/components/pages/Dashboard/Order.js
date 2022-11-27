@@ -1,9 +1,18 @@
 import React from "react";
 import { GoVerified } from "react-icons/go";
+import { Link } from "react-router-dom";
 
 const Order = ({ booking }) => {
-  const { product, image, resale_price, seller, verified, customer, catagory } =
-    booking;
+  const {
+    product,
+    image,
+    resale_price,
+    seller,
+    verified,
+    customer,
+    catagory,
+    _id,
+  } = booking;
   return (
     <div className="card bg-base-100 shadow-xl image-full">
       <figure>
@@ -25,9 +34,16 @@ const Order = ({ booking }) => {
           )}
         </p>
         <div className="card-actions justify-start">
-          <button className="btn glass btn-outline btn-success btn-sm">
-            Pay Now
-          </button>
+          {resale_price && !booking.paid && (
+            <Link to={`/dashboard/payment/${_id}`}>
+              <button className="btn glass btn-success btn-outline btn-sm">
+                Pay Now
+              </button>
+            </Link>
+          )}
+          {resale_price && booking.paid && (
+            <span className="text-primary font-bold">Paid</span>
+          )}
           <button className="btn btn-outline btn-error btn-sm">Delete</button>
         </div>
       </div>
