@@ -1,14 +1,55 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const time = new Date().toLocaleDateString();
-    console.log(time);
+    const name = form.name.value;
+    const image = form.image.value;
+    const catagory = form.catagory.value;
+    const location = form.location.value;
+    const resale_price = form.resale.value;
+    const original_price = form.original.value;
+    const use = form.use.value;
+    const seller = form.seller.value;
+    const posted = new Date().toLocaleDateString();
+
+    const product = {
+      name,
+      image,
+      catagory,
+      location,
+      resale_price,
+      original_price,
+      use,
+      posted,
+      seller,
+      verified: false,
+    };
+
+    console.log(product);
+
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.acknowledged){
+          toast.success('Product added successfully')
+          navigate();
+        }
+        console.log("posted product", data);
+      });
   };
   return (
     <div>
@@ -20,6 +61,7 @@ const AddProduct = () => {
               <span className="label-text">Product Name</span>
             </label>
             <input
+              required
               type="text"
               name="name"
               placeholder="Product name here"
@@ -31,6 +73,7 @@ const AddProduct = () => {
               <span className="label-text">Product image URL</span>
             </label>
             <input
+              required
               type="text"
               name="image"
               placeholder="Photo URL"
@@ -52,6 +95,7 @@ const AddProduct = () => {
               <span className="label-text">Product location</span>
             </label>
             <input
+              required
               type="text"
               name="location"
               placeholder="Enter location here"
@@ -63,6 +107,7 @@ const AddProduct = () => {
               <span className="label-text">Original Price</span>
             </label>
             <input
+              required
               type="number"
               name="original"
               placeholder="Enter price here"
@@ -74,6 +119,7 @@ const AddProduct = () => {
               <span className="label-text">Resale Price</span>
             </label>
             <input
+              required
               type="number"
               name="resale"
               placeholder="Enter price here"
@@ -85,6 +131,7 @@ const AddProduct = () => {
               <span className="label-text">Time of use</span>
             </label>
             <input
+              required
               type="text"
               name="use"
               placeholder="How many years?"

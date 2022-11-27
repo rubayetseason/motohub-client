@@ -6,7 +6,7 @@ import Product from "./Product";
 
 const AllProducts = () => {
   const [item, setItem] = useState(null);
-  const { data: products = [], isLoading } = useQuery({
+  const { data: products = [], isLoading , refetch} = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const res = fetch("http://localhost:5000/products");
@@ -16,6 +16,7 @@ const AllProducts = () => {
   });
 
   if(isLoading){
+    refetch();
     return <Loading></Loading>
   }
 

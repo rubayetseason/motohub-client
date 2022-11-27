@@ -12,7 +12,7 @@ const DashboardNav = () => {
           <Link to='/dashboard/addproduct'>Add A Product</Link>
         </li>
         <li className="border border-accent mx-5 my-2">
-          <Link>My Products</Link>
+          <Link to='/dashboard/myproducts'>My Products</Link>
         </li>
         <li className="border border-accent mx-5 my-2">
           <Link>All Users</Link>

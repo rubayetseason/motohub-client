@@ -7,7 +7,7 @@ const Order = ({ booking }) => {
   return (
     <div className="card bg-base-100 shadow-xl image-full">
       <figure>
-        <img src={image} className="w-full object-cover" alt="product" />
+        <img src={image} className="object-cover" alt="product" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{product}</h2>
