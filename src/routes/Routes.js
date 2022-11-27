@@ -8,6 +8,7 @@ import AllSellers from "../components/pages/Dashboard/AllSellers";
 import MyDashboard from "../components/pages/Dashboard/MyDashboard";
 import MyOrders from "../components/pages/Dashboard/MyOrders";
 import MyProducts from "../components/pages/Dashboard/MyProducts";
+import MyWishlist from "../components/pages/Dashboard/MyWishlist";
 import Home from "../components/pages/Home/Home";
 import Login from "../components/pages/Login/Login";
 import Register from "../components/pages/Login/Register";
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myorders",
         element: <MyOrders></MyOrders>,
+      },
+      {
+        path: "/dashboard/wishlist",
+        element: <MyWishlist></MyWishlist>,
       },
       {
         path: "/dashboard/addproduct",

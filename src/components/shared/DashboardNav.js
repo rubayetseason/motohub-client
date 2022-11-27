@@ -8,6 +8,10 @@ const DashboardNav = () => {
         <li className="border border-accent mx-5 my-2">
           <Link to="/dashboard/myorders">My Orders</Link>
         </li>
+         
+        <li className="border border-accent mx-5 my-2">
+          <Link to='/dashboard/wishlist'>My Wishlist</Link>
+        </li>
         <li className="border border-accent mx-5 my-2">
           <Link to="/dashboard/addproduct">Add A Product</Link>
         </li>
@@ -19,10 +23,6 @@ const DashboardNav = () => {
         </li>
         <li className="border border-accent mx-5 my-2">
           <Link to='/dashboard/allsellers'>All Sellers</Link>
-        </li>
-        
-        <li className="border border-accent mx-5 my-2">
-          <Link>Reported Items</Link>
         </li>
       </ul>
     </div>
