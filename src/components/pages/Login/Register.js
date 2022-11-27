@@ -30,7 +30,9 @@ const Register = () => {
           displayName: data.name,
         };
         updateUser(userInfo)
-          .then(() => {})
+          .then(() => {
+            saveUser(data.name, data.email, data.role);
+          })
           .catch((err) => console.log(err));
       })
       .then((error) => console.log(error));
@@ -44,6 +46,26 @@ const Register = () => {
       })
       .catch((error) => {
         console.error(error);
+      });
+  };
+
+  const saveUser = (name, email, role) => {
+    const user = {
+      name,
+      email,
+      role,
+    };
+
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("saved user", data);
       });
   };
 
