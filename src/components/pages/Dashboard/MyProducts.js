@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../../context/AuthProvider";
 import MyProduct from "./MyProduct";
 
@@ -18,6 +19,20 @@ const MyProducts = () => {
 
   const handleAdvertise = (product) => {
     console.log(product);
+
+    fetch("http://localhost:5000/advertise", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Product advertised successfully");
+        }
+      });
   };
 
   return (
