@@ -3,6 +3,8 @@ import AllProducts from "../components/pages/AllProducts/AllProducts";
 import Catagory from "../components/pages/AllProducts/Catagory";
 import Blogs from "../components/pages/Blogs/Blogs";
 import AddProduct from "../components/pages/Dashboard/AddProduct";
+import AllBuyers from "../components/pages/Dashboard/AllBuyers";
+import AllSellers from "../components/pages/Dashboard/AllSellers";
 import MyDashboard from "../components/pages/Dashboard/MyDashboard";
 import MyOrders from "../components/pages/Dashboard/MyOrders";
 import MyProducts from "../components/pages/Dashboard/MyProducts";
@@ -74,6 +76,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myproducts",
         element: <MyProducts></MyProducts>,
+      },
+      {
+        path: "/dashboard/allbuyers",
+        element: <AllBuyers></AllBuyers>,
+      },
+      {
+        path: "/dashboard/allsellers",
+        element: <AllSellers></AllSellers>,
       },
     ],
   },
