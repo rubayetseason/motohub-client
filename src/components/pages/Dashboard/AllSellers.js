@@ -16,7 +16,6 @@ const AllSellers = () => {
     return <Loading></Loading>;
   }
 
-  console.log(sellers);
 
   return (
     <div>
@@ -35,7 +34,7 @@ const AllSellers = () => {
             </thead>
             <tbody>
               {sellers.map((seller, i) => (
-                <tr>
+                <tr key={i}>
                   <th>{i+1}</th>
                   <td>{seller.name}</td>
                   <td>{seller.email}</td>
