@@ -19,6 +19,7 @@ const AddProduct = () => {
     const use = form.use.value;
     const seller = form.seller.value;
     const posted = new Date().toLocaleDateString();
+    const uid = user.uid;
 
     const product = {
       name,
@@ -31,9 +32,8 @@ const AddProduct = () => {
       posted,
       seller,
       verified: false,
+      uid
     };
-
-    console.log(product);
 
     fetch("http://localhost:5000/products", {
       method: "POST",
