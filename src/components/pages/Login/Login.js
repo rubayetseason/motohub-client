@@ -55,7 +55,7 @@ const Login = () => {
               <span className="label-text">Your Email</span>
             </label>
             <input
-              type="email"
+              type="email" required
               {...register("email", {
                 required: "Email Address is required",
               })}
@@ -71,7 +71,7 @@ const Login = () => {
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type="password" required
               {...register("password", {
                 required: "Password is required",
                 minLength: {

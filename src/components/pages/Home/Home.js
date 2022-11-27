@@ -56,8 +56,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="px-5">
+      {
+        advertises && <section className="px-5">
         <section className="p-4 lg:p-8 bg-gradient-to-r from-indigo-900 to-blue-700 dark:text-gray-100">
+          <marquee behavior="loop" direction="right"><h1 className="mb-5 font-bold underline">Advertisement</h1></marquee>
           <div className="container mx-auto space-y-12">
             <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
               <div className="caro">
@@ -68,7 +70,7 @@ const Home = () => {
                 </Carousel>
               </div>
               <div className="flex caro flex-col justify-center flex-1 p-6 dark:bg-gray-900">
-                <h1 className="text-5xl font-bold mb-3">
+                <h1 className="text-4xl md:text-5xl font-bold mb-3">
                   Thanksgiving off upto 20%
                 </h1>
                 <h3 className="text-3xl font-bold">
@@ -88,6 +90,7 @@ const Home = () => {
           </div>
         </section>
       </section>
+      }
 
       <section className="catagories-container mt-10 mb-20">
         <h1 className="text-5xl font-bold mt-20 mb-5">Categories</h1>

@@ -43,9 +43,30 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        googleUser(user.displayName, user.email);
       })
       .catch((error) => {
         console.error(error);
+      });
+  };
+
+  const googleUser = (name, email) => {
+    const user = {
+      name,
+      email,
+      role: "buyer",
+    };
+
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("saved user", data);
       });
   };
 
@@ -82,7 +103,7 @@ const Register = () => {
               <span className="label-text">Your Name</span>
             </label>
             <input
-              type="text"
+              type="text" required
               {...register("name", {
                 required: "Name is Required",
               })}
@@ -98,7 +119,7 @@ const Register = () => {
               <span className="label-text">Your Email</span>
             </label>
             <input
-              type="email"
+              type="email" required
               {...register("email", {
                 required: "Email is required",
               })}
@@ -124,7 +145,7 @@ const Register = () => {
               <span className="label-text">Your Password</span>
             </label>
             <input
-              type="password"
+              type="password" required
               {...register("password", {
                 required: "Password is required",
                 minLength: {
