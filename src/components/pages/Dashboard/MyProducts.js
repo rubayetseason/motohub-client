@@ -35,6 +35,21 @@ const MyProducts = () => {
       });
   };
 
+  const handleDelete = (id) => {
+    console.log(id);
+
+    fetch(`http://localhost:5000/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success("Product deleted successfully");
+        window.location.reload();
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
       <h1 className="text-4xl font-bold mt-10 mb-12">
@@ -46,6 +61,7 @@ const MyProducts = () => {
             key={product._id}
             product={product}
             handleAdvertise={handleAdvertise}
+            handleDelete={handleDelete}
           ></MyProduct>
         ))}
       </div>

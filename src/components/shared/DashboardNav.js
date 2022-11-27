@@ -17,6 +17,9 @@ const DashboardNav = () => {
         <li className="border border-accent mx-5 my-2">
           <Link>All Users</Link>
         </li>
+        <li className="border border-accent mx-5 my-2">
+          <Link>Reported Items</Link>
+        </li>
      
       </ul>
     </div>
