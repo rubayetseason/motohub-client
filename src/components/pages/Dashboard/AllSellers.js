@@ -1,6 +1,23 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import Loading from "../../shared/Loading";
 
 const AllSellers = () => {
+  const { data: sellers = [], isLoading, refetch } = useQuery({
+    queryKey: ["sellers"],
+    queryFn: async () => {
+      const res = fetch("http://localhost:5000/users?role=seller");
+      const data = await (await res).json();
+      return data;
+    },
+  });
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
+  console.log(sellers);
+
   return (
     <div>
       <h1 className="text-4xl font-bold mt-10 mb-10">All Sellers</h1>
@@ -11,23 +28,25 @@ const AllSellers = () => {
               <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
+                <th>Email</th>
+                <th>Role</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-                <td>
-                  <button className="btn btn-outline btn-sm btn-error">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+              {sellers.map((seller, i) => (
+                <tr>
+                  <th>{i+1}</th>
+                  <td>{seller.name}</td>
+                  <td>{seller.email}</td>
+                  <td>{seller.role}</td>
+                  <td>
+                    <button className="btn btn-outline btn-sm btn-error">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
