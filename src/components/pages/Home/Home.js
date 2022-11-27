@@ -6,8 +6,31 @@ import { Link } from "react-router-dom";
 import banner1 from "../../../assets/banner/banner-1.jpg";
 import banner2 from "../../../assets/banner/banner-2.jpg";
 import banner3 from "../../../assets/banner/banner-3.jpg";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "../../shared/Loading";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+import BannerItem from "./BannerItem";
 
 const Home = () => {
+  const {
+    data: advertises = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["advertisement"],
+    queryFn: async () => {
+      const res = fetch("http://localhost:5000/advertise");
+      const data = await (await res).json();
+      return data;
+    },
+  });
+
+  if (isLoading) {
+    refetch();
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
       <section className="mb-10">
@@ -32,6 +55,40 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <section className="px-5">
+        <section className="p-4 lg:p-8 bg-gradient-to-r from-indigo-900 to-blue-700 dark:text-gray-100">
+          <div className="container mx-auto space-y-12">
+            <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+              <div className="caro">
+                <Carousel>
+                  {advertises.map((banner) => (
+                    <BannerItem key={banner._id} banner={banner}></BannerItem>
+                  ))}
+                </Carousel>
+              </div>
+              <div className="flex caro flex-col justify-center flex-1 p-6 dark:bg-gray-900">
+                <h1 className="text-5xl font-bold mb-3">
+                  Thanksgiving off upto 20%
+                </h1>
+                <h3 className="text-3xl font-bold">
+                  Catch up on our amazing deals!!!
+                </h3>
+                <p className="my-6 dark:text-gray-400">
+                  <small>Advertise your product with cheaper price</small>
+                </p>
+                <Link to="/allproducts">
+                  {" "}
+                  <button className="btn btn-ghost hover:bg-rose-600 bg-rose-700">
+                    Check our collections
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+
       <section className="catagories-container mt-10 mb-20">
         <h1 className="text-5xl font-bold mt-20 mb-5">Categories</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-5">

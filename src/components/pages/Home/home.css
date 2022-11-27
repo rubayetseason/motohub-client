@@ -2,3 +2,8 @@
 background-image: url('../../../assets/bike.jpg');
 object-fit: cover;
 }
+
+.caro{
+    flex-grow: 1;
+    flex-basis: 50%;
+}
