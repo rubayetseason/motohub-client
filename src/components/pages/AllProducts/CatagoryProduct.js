@@ -1,7 +1,7 @@
 import React from "react";
 import { GoVerified } from "react-icons/go";
 
-const CatagoryProduct = ({ product, setItem }) => {
+const CatagoryProduct = ({ product, setItem, handleWishlist }) => {
   const {
     name,
     image,
@@ -54,7 +54,12 @@ const CatagoryProduct = ({ product, setItem }) => {
           >
             Book Now
           </label>
-          <button className="btn btn-accent btn-sm">Add to wishlist</button>
+          <button
+            onClick={() => handleWishlist(product)}
+            className="btn btn-accent btn-sm"
+          >
+            Add to wishlist
+          </button>
         </div>
       </div>
     </div>
