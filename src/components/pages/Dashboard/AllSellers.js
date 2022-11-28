@@ -4,10 +4,14 @@ import toast from "react-hot-toast";
 import Loading from "../../shared/Loading";
 
 const AllSellers = () => {
-  const { data: sellers = [], isLoading, refetch } = useQuery({
+  const {
+    data: sellers = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["sellers"],
     queryFn: async () => {
-      const res = fetch("http://localhost:5000/users?role=seller");
+      const res = fetch("https://motohub-server.vercel.app/users?role=seller");
       const data = await (await res).json();
       return data;
     },
@@ -18,7 +22,7 @@ const AllSellers = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://motohub-server.vercel.app/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -29,7 +33,6 @@ const AllSellers = () => {
       })
       .catch((error) => console.log(error));
   };
-
 
   return (
     <div>
@@ -49,14 +52,15 @@ const AllSellers = () => {
             <tbody>
               {sellers.map((seller, i) => (
                 <tr key={i}>
-                  <th>{i+1}</th>
+                  <th>{i + 1}</th>
                   <td>{seller.name}</td>
                   <td>{seller.email}</td>
                   <td>{seller.role}</td>
                   <td>
                     <button
-                     onClick={() => handleDelete(seller._id)}
-                     className="btn btn-outline btn-sm btn-error">
+                      onClick={() => handleDelete(seller._id)}
+                      className="btn btn-outline btn-sm btn-error"
+                    >
                       Delete
                     </button>
                   </td>

@@ -10,7 +10,7 @@ const MyProducts = () => {
   const [myProducts, setMyProducts] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/products?uid=${user?.uid}`)
+      .get(`https://motohub-server.vercel.app/products?uid=${user?.uid}`)
       .then((data) => {
         const productList = data.data;
         setMyProducts(productList);
@@ -20,7 +20,7 @@ const MyProducts = () => {
   const handleAdvertise = (product) => {
     console.log(product);
 
-    fetch("http://localhost:5000/advertise", {
+    fetch("https://motohub-server.vercel.app/advertise", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,7 +38,7 @@ const MyProducts = () => {
   const handleDelete = (id) => {
     console.log(id);
 
-    fetch(`http://localhost:5000/products/${id}`, {
+    fetch(`https://motohub-server.vercel.app/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

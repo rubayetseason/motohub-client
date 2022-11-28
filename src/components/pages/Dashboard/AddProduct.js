@@ -32,10 +32,10 @@ const AddProduct = () => {
       posted,
       seller,
       verified: false,
-      uid
+      uid,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://motohub-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,8 +44,8 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.acknowledged){
-          toast.success('Product added successfully')
+        if (data.acknowledged) {
+          toast.success("Product added successfully");
           navigate();
         }
         console.log("posted product", data);

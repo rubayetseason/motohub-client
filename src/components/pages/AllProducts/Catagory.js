@@ -6,31 +6,30 @@ import BookingModal from "./BookingModal";
 import CatagoryProduct from "./CatagoryProduct";
 
 const Catagory = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [item, setItem] = useState(null);
   const products = useLoaderData();
   const prod = products[0].catagory;
 
-  const handleWishlist = product => {
+  const handleWishlist = (product) => {
     product.uid = user?.uid;
-    
+
     console.log(product);
 
-fetch("http://localhost:5000/wishlist", {
-  method: "POST",
-  headers: {
-    "content-type": "application/json",
-  },
-  body: JSON.stringify(product),
-})
-  .then((res) => res.json())
-  .then((data) => {
-    if(data.acknowledged){
-      toast.success('Added to wishlist')
-    }
-    console.log("posted product", data);
-  });
-
+    fetch("https://motohub-server.vercel.app/wishlist", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(product),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Added to wishlist");
+        }
+        console.log("posted product", data);
+      });
   };
 
   return (

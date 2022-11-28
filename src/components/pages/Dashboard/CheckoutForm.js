@@ -12,7 +12,7 @@ const CheckoutForm = ({ booking }) => {
   const { resale_price, customer, _id, email } = booking;
 
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://motohub-server.vercel.app/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +71,7 @@ const CheckoutForm = ({ booking }) => {
         email,
         bookingId: _id,
       };
-      fetch("http://localhost:5000/payments", {
+      fetch("https://motohub-server.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",

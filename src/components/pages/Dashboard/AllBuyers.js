@@ -11,7 +11,7 @@ const AllBuyers = () => {
   } = useQuery({
     queryKey: ["buyers"],
     queryFn: async () => {
-      const res = fetch("http://localhost:5000/users?role=buyer");
+      const res = fetch("https://motohub-server.vercel.app/users?role=buyer");
       const data = await (await res).json();
       return data;
     },
@@ -22,7 +22,7 @@ const AllBuyers = () => {
   }
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`https://motohub-server.vercel.app/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

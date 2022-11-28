@@ -57,7 +57,7 @@ const Register = () => {
       role: "buyer",
     };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://motohub-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -77,7 +77,7 @@ const Register = () => {
       role,
     };
 
-    fetch("http://localhost:5000/users", {
+    fetch("https://motohub-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -103,7 +103,8 @@ const Register = () => {
               <span className="label-text">Your Name</span>
             </label>
             <input
-              type="text" required
+              type="text"
+              required
               {...register("name", {
                 required: "Name is Required",
               })}
@@ -119,7 +120,8 @@ const Register = () => {
               <span className="label-text">Your Email</span>
             </label>
             <input
-              type="email" required
+              type="email"
+              required
               {...register("email", {
                 required: "Email is required",
               })}
@@ -145,7 +147,8 @@ const Register = () => {
               <span className="label-text">Your Password</span>
             </label>
             <input
-              type="password" required
+              type="password"
+              required
               {...register("password", {
                 required: "Password is required",
                 minLength: {

@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.brand}`),
+          fetch(`https://motohub-server.vercel.app/products/${params.brand}`),
       },
       {
         path: "/login",
@@ -115,7 +115,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://motohub-server.vercel.app/bookings/${params.id}`),
       },
     ],
   },

@@ -12,7 +12,9 @@ const MyWishlist = () => {
   const { data: wishlists = [], isLoading } = useQuery({
     queryKey: ["wishlist"],
     queryFn: async () => {
-      const res = fetch(`http://localhost:5000/wishlist?uid=${user?.uid}`);
+      const res = fetch(
+        `https://motohub-server.vercel.app/wishlist?uid=${user?.uid}`
+      );
       const data = await (await res).json();
       return data;
     },
